@@ -1,9 +1,10 @@
 
-import tabJoursEnOrdre from "./Utilitaire/gestionTemps.js";
+// import tabJoursEnOrdre from "./Utilitaire/gestionTemps.js";
 
 let resultasApi;
 
-
+const currentDate = new Date();
+const date = document.querySelector('.date');
 const temps = document.querySelector('.temps');
 const temperature = document.querySelector('.temperature');
 const humidity = document.querySelector('.humidity');
@@ -11,6 +12,10 @@ const localisation = document.querySelector('.localisation');
 
 const heure = document.querySelectorAll('.heure-nom-prevision');
 const temppourH= document.querySelectorAll ('.heure-prevision-valeur');
+const imgIcon = document.querySelector('.logo-meteo');
+const iconUrlD = "//cdn.weatherapi.com/weather/64x64/day/116.png";
+const iconUrlN = "//cdn.weatherapi.com/weather/64x64/night/116.png";
+
 
 // const jourDiv = document.querySelectorAll ('.jour-prevision-nom');
 // const tempJoursdiv = document.querySelectorAll('.jour-prevision-temp');
@@ -37,6 +42,13 @@ function AppelApi(long, lat) {
         console.log(data);
         resultasApi = data;
 
+        const formattedDate = currentDate.toLocaleDateString('fr-FR', {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric'
+          });
+          
+        date.innerText = formattedDate;
         temps.innerText = resultasApi.current.condition.text;
         temperature.innerText = resultasApi.current.temp_c +"°C" ;
         localisation.innerText = resultasApi.location.name +" / "+ resultasApi.location.country;
@@ -69,6 +81,14 @@ function AppelApi(long, lat) {
         // //     tempJoursdiv[m].innerText = `${resultasApi.forecast.forecastday.day[m + 1].temp_c}°`
         // //  }
     
+
+        // icon dynamic 
+        if(heurAccuelle > 6 && heurAccuelle <21) {
+            imgIcon.src = iconUrlD;
+
+        }else {
+            imgIcon.src = iconUrlN;
+        }
     })
 
 }

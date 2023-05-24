@@ -47,6 +47,9 @@ h1 {
 .bloc-info {
     width: 50%;
 }
+.bloc-info .date {
+    font-size: 50px;
+}
 .bloc-info .temps {
     font-size: 40px;
 }
