@@ -56,31 +56,36 @@ h1 {
 .bloc-info .temperature {
     font-size: 60px;
 }
+.bloc-info .humidity {
+    font-size: 40px;
+}
 .bloc-info .localisation {
     font-size: 40px;
 }
 
+
 .heure-bloc-prevision {
-    grid-area: 3 / 1 / 4 / -1; 
+    grid-area: 4 / 1 / 4 / -1; 
 }
-.jour-prevision-bloc {
+/* .jour-prevision-bloc {
     grid-area: 4 / 1 / 5 / -1; 
-}
-.jour-prevision-bloc, .heure-bloc-prevision {
+} */
+.heure-bloc-prevision {
     display: grid;
     grid-template: 100px / repeat(7, 1fr);
 }
-.bloc-h, .bloc-j {
+.bloc-h {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
     font-size: 21px;
 } 
-.bloc-h:not(:last-child),.bloc-j:not(:last-child) {
+.bloc-h:not(:last-child) {
     border-right: 1px solid #f1f1f1;
 }
-.bloc-h p, .bloc-j p {
+.bloc-h p {
     margin: 5px;
 }
